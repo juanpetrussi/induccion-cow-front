@@ -14,19 +14,34 @@ class Buttons extends Component {
 
         fetch('http://localhost:4567/induccion/punto1', {
             method : "POST"
-        })
-        .then((result) => result.json())
+        }).then((result) => result.json())
             .then((init_point_resp) => {
-                this.setState({ init_point : init_point_resp.initPoint, preferenceId : init_point_resp.id  });
+                this.setState({ init_point : init_point_resp.initPoint, preferenceId : init_point_resp.id });
+/*
+                this.createButtonPunto5();
+*/
             })
     }
+
+    /*createButtonPunto5() {
+        var form5 = document.createElement("form");
+        form5.action = "http://localhost:4567/induccion/punto5";
+        form5.method = "POST";
+
+        var script5 = document.createElement("script");
+        script5.setAttribute('src', 'https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js');
+        script5.setAttribute('data-preference-id', this.state.preferenceId);
+
+        form5.appendChild(script5);
+        document.querySelector("#divPunto5").appendChild(form5);
+    }*/
 
     render() {
         return (
             <div>
                 <h3>Punto 1 - Checkout básico</h3>
                 <h3>Preference Id</h3><p>{this.state.preferenceId}</p>
-                <h3>Preferencia Generada</h3><p>{this.state.init_point} - <a href={this.state.init_point} name="MP-Checkout" className="mercadopago-button">Pay</a></p>
+                <h3>Preferencia Generada (initpoint)</h3><p>{this.state.init_point} - <a href={this.state.init_point} name="MP-Checkout" className="mercadopago-button">Pay</a></p>
 
                 <h3>Punto 2 - Web Payment Checkout (V1)</h3>
                 <a href={this.state.init_point} name="MP-Checkout" className="green-L-Rn" mp-mode="blank">Pagar (Blanck)</a>
