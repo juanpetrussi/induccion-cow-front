@@ -9,6 +9,18 @@ class Forms extends Component {
                 <form action="http://localhost:4567/induccion/punto3" method="POST" id="pay" name="pay" >
                         <ul>
                             <li>
+                                <label>Name</label>
+                                <input id="name" name="name" placeholder="Juan"/>
+                            </li>
+                            <li>
+                                <label>Surname</label>
+                                <input id="surname" name="surname" placeholder="Perez"/>
+                            </li>
+                            <li>
+                                <label>Description</label>
+                                <input id="description" name="description" placeholder="description product"/>
+                            </li>
+                            <li>
                                 <label>Email</label>
                                 <input id="email" name="email" type="email" placeholder="test_user_19653727@testuser.com"/>
                             </li>
@@ -46,11 +58,11 @@ class Forms extends Component {
                             </li>
                             <li>
                                 <label>Document type:</label>
-                                <select id="docType" data-checkout="docType"></select>
+                                <select id="docType" name="docType" data-checkout="docType"></select>
                             </li>
                             <li>
                                 <label>Document number:</label>
-                                <input type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
+                                <input type="text" id="docNumber" name="docNumber" data-checkout="docNumber" placeholder="12345678" />
                             </li>
                         </ul>
                         <input type="hidden" id="paymentMethodId" name="paymentMethodId" />
